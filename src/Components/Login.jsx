@@ -1,5 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import '../Components/Login.css'
 
 const URL = import.meta.env.VITE_BASE_URL;
 
@@ -10,7 +11,6 @@ const Login = ({ setToggleLogin }) => {
   function handleChange(event) {
     setUser({ ...user, [event.target.id]: event.target.value });
   }
-  // This function is being used in two places. It can be extracted to a helpers.js file
 
   async function postFetch(user) {
     const options = {
@@ -18,7 +18,6 @@ const Login = ({ setToggleLogin }) => {
       headers: {
         "Content-Type": "application/json",
       },
-
       body: JSON.stringify(user),
     };
 
@@ -44,7 +43,6 @@ const Login = ({ setToggleLogin }) => {
     }
   }
 
-  // Login Function
   async function handleSubmit(e) {
     e.preventDefault();
     if (!user.username || !user.password) {
@@ -54,7 +52,6 @@ const Login = ({ setToggleLogin }) => {
     postFetch(user);
   }
 
-  //Demo User Login Function
   async function handleDemoSignIn(e) {
     e.preventDefault();
     const user = { username: "demo", password: "password" };
@@ -62,50 +59,35 @@ const Login = ({ setToggleLogin }) => {
   }
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <h1>Login Component</h1>
-      <br />
-      <h2>
-        Use the DemoUser button to login and save time during your presentation
-      </h2>
-      <button onClick={handleDemoSignIn}>Demo User</button>
-      <br />
-      <br />
-      <br />
-
-      <h3> Remove the 'br' tags and these instructions if you use this code</h3>
-
-      <br />
-      <br />
-      <br />
-      <h3>Below is the regular login form which should be functional</h3>
-      <form onSubmit={handleSubmit}>
+    <div className="login-container">
+      <h1>TaskMate</h1>
+      <button className="demo-button" onClick={handleDemoSignIn}>Demo User</button>
+      <br/>
+      <form className="login-form" onSubmit={handleSubmit}>
         <label htmlFor="username">
           <input
             id="username"
             value={user.username}
             type="text"
-            placeholder="username"
+            placeholder="Username"
             autoComplete="username"
             onChange={handleChange}
           />
         </label>
-
         <label htmlFor="password">
           <input
             id="password"
             value={user.password}
             type="password"
-            placeholder="password"
+            placeholder="Password"
             onChange={handleChange}
             autoComplete="current-password"
           />
         </label>
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </form>
-      <p>
-        No Account? <Link to="/register">Register</Link>
-      </p>
+      <br/>
+      <p>No Account? <Link to="/register">Register</Link></p>
     </div>
   );
 };

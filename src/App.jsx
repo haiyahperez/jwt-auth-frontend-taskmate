@@ -8,6 +8,9 @@ import Dashboard from "./Components/Dashboard";
 import NavBar from "./Components/NavBar";
 import LandingPage from "./Components/LandingPage";
 
+import Task from "./Components/Task";
+import GoalForm from "./Components/GoalForm";
+
 function App() {
   const navigate = useNavigate();
   const [toggleLogin, setToggleLogin] = useState(false);
@@ -38,9 +41,20 @@ function App() {
           path="/register"
           element={<Register setToggleLogin={setToggleLogin} />}
         />
+        <Route 
+        path="/tasks" 
+        element={<Task />} />
 
         <Route element={<ProtectedRoute />}>
           {/* Place protected routes here */}
+          <Route
+            path="/task/goals"
+            element={<GoalForm />}
+          />
+          <Route 
+            path="/task/goals/edit/:id"
+            element={<GoalForm />}
+          />
           <Route
             path="/dashboard"
             element={<Dashboard handleLogout={handleLogout} />}
