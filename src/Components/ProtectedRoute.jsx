@@ -21,9 +21,13 @@ export const useAuth = () => {
           },
         });
         if (response.ok) {
+          const data = await response.json();
+          console.log(data)
           const { isAuthenticated, user } = await response.json();
+          console.log("protected route", user)
 
           setIsAuthenticated(isAuthenticated);
+          console.log(user)
           setUser(user);
           setIsLoading(false);
         } else {

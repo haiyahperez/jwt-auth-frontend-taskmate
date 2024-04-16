@@ -41,12 +41,12 @@ function App() {
           path="/register"
           element={<Register setToggleLogin={setToggleLogin} />}
         />
-        <Route 
-        path="/tasks" 
-        element={<Task />} />
 
         <Route element={<ProtectedRoute />}>
           {/* Place protected routes here */}
+          <Route 
+          path="/tasks" 
+          element={<Task />} />
           <Route
             path="/task/goals"
             element={<GoalForm />}

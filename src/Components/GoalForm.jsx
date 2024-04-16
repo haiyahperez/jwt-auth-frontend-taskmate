@@ -34,7 +34,7 @@ const GoalForm = () => {
     };
     
     const handleRadioChange = (event) => {
-        setGoalForm({...goalForm, cat_id: event.target.value})
+        setGoalForm({...goalForm, cat_id: parseInt(event.target.value)})
     }
     const handleSubmit = async (event) => {
         event.preventDefault();

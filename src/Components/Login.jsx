@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import '../Components/Login.css'
+// import '../Components/Login.css'
 
 const URL = import.meta.env.VITE_BASE_URL;
 
@@ -24,6 +24,7 @@ const Login = ({ setToggleLogin }) => {
     try {
       const res = await fetch(`${URL}/api/auth/login`, options);
       const data = await res.json();
+      console.log(data)
 
       if (!res.ok) {
         alert("Login failed");

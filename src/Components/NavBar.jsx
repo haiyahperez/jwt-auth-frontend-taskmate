@@ -29,10 +29,10 @@ const NavBar = ({ toggleLogin, handleLogout }) => {
 
   return (
     <div className="navbar-container">
-      <h1>Navbar Component</h1>
       <h2>
         <Link style={{ textDecoration: "none" }} to="/">
-          Your image or Logo (click here to go to Landing Page)
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-send"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+       <h1>TaskMate</h1>
         </Link>
       </h2>
 
