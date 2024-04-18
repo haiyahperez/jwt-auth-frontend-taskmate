@@ -92,28 +92,13 @@ const GoalForm = () => {
     }
     return (
         <div
-        style={{
+          style={{
             backgroundImage: `url(${`https://res.cloudinary.com/djg5i10dg/image/upload/c_crop,w_2160,h_1215,x_0,y_472,ar_16:9/v1713412296/pattern_cross-section_1_2_0-0_0_1__ffffff_c0b7d1_iduu8f.png`})`,
             backgroundSize: "cover",
           }}
-          className="pb-24">
-            { id && <div>
-            <button className="w-3/4 mx-auto mb-3 bg-white flex justify-center rounded-sm text-red-600 border-red-600 shadow-md p-1" onClick={() => setToggleDelete(true)}>
-                Delete
-            </button>
-            {toggleDelete && (
-                        <div className="modal-overlay">
-                            <div className="modal">
-                                <p>Are you sure you want to delete this form?</p>
-                                <div>
-                                    <button onClick={() => setToggleDelete(false)}>Cancel</button>
-                                    <button onClick={handleDelete}>Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-            </div>}
-            <div className="flex justify-center">
+          className="pb-24"
+        >
+          <div className="flex justify-center">
             <form onSubmit={handleSubmit} className="bg-purple-300 w-96 mt-5 p-5">
               <div className="grid grid-cols-1 gap-4">
                 <label className="text-center">
@@ -225,10 +210,28 @@ const GoalForm = () => {
                 <div>
                   <button className="w-3/4 mx-auto mb-3 shadow-lg" type="submit">Save</button>
                 </div>
-            </div>
-        </form>
+                { id && 
+                  <div>
+                    <button className="w-3/4 mx-auto mb-3 bg-white flex justify-center rounded-sm text-red-600 border-red-600 shadow-md p-1" onClick={() => setToggleDelete(true)}>
+                      Delete
+                    </button>
+                    {toggleDelete && (
+                      <div className="modal-overlay">
+                        <div className="modal">
+                          <p>Are you sure you want to delete this form?</p>
+                          <div>
+                            <button onClick={() => setToggleDelete(false)}>Cancel</button>
+                            <button onClick={handleDelete}>Delete</button>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                }
+              </div>
+            </form>
+          </div>
         </div>
-    </div>
     );
 };
 
