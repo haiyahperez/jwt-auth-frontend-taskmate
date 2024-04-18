@@ -42,27 +42,27 @@ const Task = () => {
         <div>
             <div className="RedTasks">
                 <h2>Red Tasks</h2>
-                <ul>
+                {/* <ul>
                     {redTasks.map(task => (
                         <li key={task.task_id}>{task.title}</li>
                     ))}
-                </ul>
+                </ul> */}
             </div>
             <div className="YellowTasks">
                 <h2>Yellow Tasks</h2>
-                <ul>
+                {/* <ul>
                     {yellowTasks.map(task => (
                         <li key={task.task_id}>{task.title}</li>
                     ))}
-                </ul>
+                </ul> */}
             </div>
             <div className="GreenTasks">
                 <h2>Green Tasks</h2>
-                <ul>
+                {/* <ul>
                     {greenTasks.map(task => (
                         <li key={task.task_id}>{task.title}</li>
                     ))}
-                </ul>
+                </ul> */}
             </div>
         </div>
     );

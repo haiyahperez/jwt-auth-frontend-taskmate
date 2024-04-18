@@ -1,0 +1,44 @@
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff; 
+    color: #000000; 
+  }
+
+  .nav-log-in-button{
+    margin-left: auto;
+  }
+
+  .login-link{
+    padding-left: 1100px;
+  }
+  
+  .navbar-container h1 {
+    margin: 0;
+    font-size: 3.5rem; 
+  }
+  
+  .navbar-links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 1rem;
+  }
+  
+  .navbar-links a:hover {
+    text-decoration: underline;
+  }
+
+  .nav-bar-title{
+    font-family: "Lilita One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  

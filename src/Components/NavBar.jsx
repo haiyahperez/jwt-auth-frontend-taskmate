@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-
 import { Link } from "react-router-dom";
+import "./NavBar.css";
 
 const URL = import.meta.env.VITE_BASE_URL;
 
@@ -28,26 +28,26 @@ const NavBar = ({ toggleLogin, handleLogout }) => {
   }, [toggleLogin]);
 
   return (
-    <div className="navbar-container">
+    <div className="navbar-container border-4 shadow-lg border-purple-200">
       <h2>
-        <Link style={{ textDecoration: "none" }} to="/">
-        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-send"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-       <h1>TaskMate</h1>
+        <Link style={{ textDecoration: "none" }} to="/dashboard">
+          <h1 className="nav-bar-title pl-8">TaskMate</h1>
         </Link>
       </h2>
-
-      {!toggleLogin ? (
-        <Link to={"/login"}>
-          <span>Login</span>
-        </Link>
-      ) : (
-        <div>
-          {user && <span>Hello, {user.username.toUpperCase()} | </span>}
-          <Link onClick={handleLogout}>
-            <span>Logout</span>
+      <div className="nav-login-button">
+        {!toggleLogin ? (
+          <Link to={"/login"}>
+            <span className="login-link">Login</span>
           </Link>
-        </div>
-      )}
+        ) : (
+          <div className="login-link">
+            {user && <span>Hello, {user.username.toUpperCase()} | </span>}
+            <Link onClick={handleLogout}>
+              <span>Logout</span>
+            </Link>
+          </div>
+        )}
+      </div>
       <hr />
     </div>
   );

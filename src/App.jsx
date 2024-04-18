@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
 import ProtectedRoute from "./Components/ProtectedRoute";
@@ -8,7 +8,6 @@ import Dashboard from "./Components/Dashboard";
 import NavBar from "./Components/NavBar";
 import LandingPage from "./Components/LandingPage";
 
-import Task from "./Components/Task";
 import GoalForm from "./Components/GoalForm";
 
 function App() {
@@ -23,6 +22,12 @@ function App() {
     navigate("/login");
   }
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setToggleLogin(true);
+    }
+  }, [])
   return (
     <>
       <NavBar
@@ -30,7 +35,6 @@ function App() {
         toggleLogin={toggleLogin}
         setToggleLogin={setToggleLogin}
       />
-
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route
@@ -43,10 +47,6 @@ function App() {
         />
 
         <Route element={<ProtectedRoute />}>
-          {/* Place protected routes here */}
-          <Route 
-          path="/tasks" 
-          element={<Task />} />
           <Route
             path="/task/goals"
             element={<GoalForm />}

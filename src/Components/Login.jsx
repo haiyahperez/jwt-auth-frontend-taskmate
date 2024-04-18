@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-// import '../Components/Login.css'
+import './Login.css'; // Import the CSS file
+
 
 const URL = import.meta.env.VITE_BASE_URL;
 
@@ -60,8 +61,11 @@ const Login = ({ setToggleLogin }) => {
   }
 
   return (
-    <div className="login-container">
-      <h1>TaskMate</h1>
+    <div className="login-container" style={{
+      backgroundImage: `url(${`https://res.cloudinary.com/djg5i10dg/image/upload/c_crop,w_2160,h_1215,x_0,y_472,ar_16:9/v1713412296/pattern_cross-section_1_2_0-0_0_1__ffffff_c0b7d1_iduu8f.png`})`,
+      backgroundSize: "cover",
+    }}>
+      <h1 className="title">TaskMate</h1>
       <button className="demo-button" onClick={handleDemoSignIn}>Demo User</button>
       <br/>
       <form className="login-form" onSubmit={handleSubmit}>
@@ -73,6 +77,7 @@ const Login = ({ setToggleLogin }) => {
             placeholder="Username"
             autoComplete="username"
             onChange={handleChange}
+            className="input-field"
           />
         </label>
         <label htmlFor="password">
@@ -83,12 +88,13 @@ const Login = ({ setToggleLogin }) => {
             placeholder="Password"
             onChange={handleChange}
             autoComplete="current-password"
+            className="input-field"
           />
         </label>
-        <button type="submit">Submit</button>
+        <button type="submit" className="login-button">Log In</button>
       </form>
       <br/>
-      <p>No Account? <Link to="/register">Register</Link></p>
+      <p>No Account? <Link to="/register" className="register-link">Register</Link></p>
     </div>
   );
 };
