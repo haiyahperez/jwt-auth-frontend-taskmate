@@ -25,4 +25,4 @@ Welcome to TaskMate – your ultimate organizational web app designed to simplif
 **Initiate and Seed the Data**: Use `npm run db:init` and then `npm run db:seed` to initiate and seed the data.
 **Start Development Server**: Use `npm run dev` to launch the server.
 
-## Find our website here: https://taskmates.netlify.app/login
+## Live site URL [(https://taskmates.netlify.app/login)]
